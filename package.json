@@ -23,6 +23,7 @@
     "@release-it/conventional-changelog": "^8.0.1",
     "@repo/eslint-config": "*",
     "commitlint": "^19.3.0",
+    "dotenv-cli": "^7.4.2",
     "husky": "^9.0.11",
     "lint-staged": "^15.2.7",
     "prettier": "^3.2.5",
