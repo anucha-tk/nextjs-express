@@ -19,23 +19,20 @@ services:
       - 3001:3001
     networks:
       - app_network
-  mongodb:
-    container_name: mongodb
-    hostname: mongo
-    image: mongo:7
+  postgres:
+    container_name: postgres
+    image: postgres:16
+    user: root
+    environment:
+      - POSTGRES_USER=${DATABASE_USERNAME}
+      - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
+      - POSTGRES_DB=${DATABASE_NAME}
     ports:
-      - 27017:27017
+      - "5432:5432"
     env_file:
       - .env.development
-    environment:
-      - MONGO_INITDB_ROOT_USERNAME=$DATABASE_ADMIN
-      - MONGO_INITDB_ROOT_PASSWORD=$DATABASE_ADMIN_PWD
-      - MONGO_INITDB_DATABASE=$DATABASE_NAME
-      - MONGO_INITDB_USERNAME=$DATABASE_USER
-      - MONGO_INITDB_PASSWORD=$DATABASE_USER_PWD
     volumes:
-      - ./apps/mongo/addons/init-mongo.sh:/docker-entrypoint-initdb.d/init-mongo.sh
-      - mongo_turbo_data:/data/db
+      - postgres_turbo_data:/var/lib/postgresql/data
     restart: unless-stopped
     networks:
       - app_network
@@ -43,4 +40,4 @@ networks:
   app_network:
     driver: bridge
 volumes:
-  mongo_turbo_data:
+  postgres_turbo_data:

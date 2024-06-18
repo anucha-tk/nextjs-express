@@ -1,5 +1,5 @@
-dev-mongo-local:
-	docker compose --env-file .env.development up -d mongodb
+dev-postgres-local:
+	docker compose --env-file .env.development up -d postgres
 stop:
 	docker compose stop
 down:
