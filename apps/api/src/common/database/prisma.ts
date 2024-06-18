@@ -1,4 +1,5 @@
 import { PrismaClient } from "@prisma/client";
+import Logger from "@repo/logger";
 
 const prismaClientSingleton = () => {
   return new PrismaClient();
@@ -17,8 +18,8 @@ if (process.env.NODE_ENV !== "production") globalThis.prismaGlobal = prisma;
 prisma
   .$connect()
   .then(() => {
-    console.log("Connected to the database");
+    Logger.info("Connected to the database");
   })
   .catch((error) => {
-    console.error("Error connecting to the database:", error);
+    Logger.error("Error connecting to the database:", error);
   });

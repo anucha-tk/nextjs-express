@@ -3,6 +3,11 @@ import morgan from "morgan";
 import cors from "cors";
 import express from "express";
 import prisma from "./common/database/prisma";
+import Logger from "@repo/logger";
+
+process.on("uncaughtException", (e) => {
+  Logger.error(e);
+});
 
 export const createServer = () => {
   const app = express();

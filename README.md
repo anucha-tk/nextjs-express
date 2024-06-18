@@ -3,14 +3,19 @@
 ## Tools
 
 - Docker
-- Express
-- Nextjs
-- Mongo7
+- Front-End
+  - Nextjs
+- Back-End
+  - Logger
+  - Response Handler
+  - Error Handler
+  - Express
+  - Prisma ORM
 
 ## How to run
 
-### Run MongoDB
+### Run Postgresql on docker
 
 ```bash
-make dev-mongo-local
+make dev-postgres-local
 ```

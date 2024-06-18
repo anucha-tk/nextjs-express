@@ -1,9 +1,11 @@
-import { log } from "@repo/logger";
+import Logger from "@repo/logger";
 import { createServer } from "./server";
+import { port } from "./config";
 
-const port = process.env.PORT || 3001;
 const server = createServer();
 
-server.listen(port, () => {
-  log(`api running on ${port}`);
-});
+server
+  .listen(port, () => {
+    Logger.info(`server running on port : ${port}`);
+  })
+  .on("error", (e) => Logger.error(e));
