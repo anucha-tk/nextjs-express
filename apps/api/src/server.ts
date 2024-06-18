@@ -1,9 +1,9 @@
 import { json, urlencoded } from "body-parser";
-import express, { type Express } from "express";
 import morgan from "morgan";
 import cors from "cors";
+import express from "express";
 
-export const createServer = (): Express => {
+export const createServer = () => {
   const app = express();
   app
     .disable("x-powered-by")
