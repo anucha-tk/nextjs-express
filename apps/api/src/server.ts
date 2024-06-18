@@ -2,6 +2,7 @@ import { json, urlencoded } from "body-parser";
 import morgan from "morgan";
 import cors from "cors";
 import express from "express";
+import prisma from "./common/database/prisma";
 
 export const createServer = () => {
   const app = express();
@@ -17,6 +18,9 @@ export const createServer = () => {
     .get("/status", (_, res) => {
       return res.json({ ok: true });
     });
-
+  app.get("/apikey", async (_, res) => {
+    const apikeys = await prisma.apiKey.findMany();
+    return res.json(apikeys);
+  });
   return app;
 };
