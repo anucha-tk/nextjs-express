@@ -15,6 +15,7 @@ enum ResponseStatus {
   UNAUTHORIZED = 401,
   FORBIDDEN = 403,
   NOT_FOUND = 404,
+  Unprocessable_Content = 422,
   INTERNAL_ERROR = 500,
 }
 
@@ -142,5 +143,16 @@ export class TokenRefreshResponse extends ApiResponse {
 
   send(res: Response): Response {
     return super.prepare<TokenRefreshResponse>(res, this);
+  }
+}
+export class UnprocessableContentResponse<T> extends ApiResponse {
+  constructor(
+    message: string = "Unprocessable Content",
+    protected data: T,
+  ) {
+    super(StatusCode.FAILURE, ResponseStatus.Unprocessable_Content, message);
+  }
+  send(res: Response): Response {
+    return super.prepare<UnprocessableContentResponse<T>>(res, this);
   }
 }
