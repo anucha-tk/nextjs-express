@@ -2633,6 +2633,7 @@ __metadata:
     esbuild-register: "npm:^3.5.0"
     eslint: "npm:^8.57.0"
     express: "npm:^4.18.3"
+    express-list-endpoints: "npm:^7.1.0"
     jest: "npm:^29.7.0"
     morgan: "npm:^1.10.0"
     nodemon: "npm:^3.1.0"
@@ -5146,6 +5147,13 @@ __metadata:
   version: 3.1.1
   resolution: "exponential-backoff@npm:3.1.1"
   checksum: 10c0/160456d2d647e6019640bd07111634d8c353038d9fa40176afb7cd49b0548bdae83b56d05e907c2cce2300b81cae35d800ef92fefb9d0208e190fa3b7d6bb579
+  languageName: node
+  linkType: hard
+
+"express-list-endpoints@npm:^7.1.0":
+  version: 7.1.0
+  resolution: "express-list-endpoints@npm:7.1.0"
+  checksum: 10c0/350efac619670562995b8e16d2c64719539e1432f9bfd8916c5d79588726ee5d42cfc48add97c11c1ff2a9085d5e3e89f2267cc7ae7a30562b7a960e8b211048
   languageName: node
   linkType: hard
 

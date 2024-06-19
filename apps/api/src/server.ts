@@ -2,8 +2,9 @@ import { json, urlencoded } from "body-parser";
 import morgan from "morgan";
 import cors from "cors";
 import express from "express";
-import prisma from "./common/database/prisma";
 import Logger from "@repo/logger";
+import { routesV1 } from "./routes";
+import expressListEndpoints from "express-list-endpoints";
 
 process.on("uncaughtException", (e) => {
   Logger.error(e);
@@ -17,15 +18,14 @@ export const createServer = () => {
     .use(urlencoded({ extended: true }))
     .use(json())
     .use(cors())
-    .get("/message/:name", (req, res) => {
-      return res.json({ message: `hello ${req.params.name}` });
-    })
-    .get("/status", (_, res) => {
-      return res.json({ ok: true });
-    });
-  app.get("/apikey", async (_, res) => {
-    const apikeys = await prisma.apiKey.findMany();
-    return res.json(apikeys);
+    .use("/api/v1", routesV1);
+
+  const endPoints = expressListEndpoints(app);
+  Logger.info("--------------EndPoint Registers-------------------");
+  endPoints.forEach((e) => {
+    Logger.info(`${e.methods} ${e.path}`);
   });
+  Logger.info("---------------------------------------------------");
+
   return app;
 };
