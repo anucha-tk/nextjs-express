@@ -1,8 +1,8 @@
 import express from "express";
-import singup from "./access/singup";
+import signup from "./access/signup";
 
 const router = express.Router();
 
-router.use("/signup", singup);
+router.use("/signup", signup);
 
 export default router;

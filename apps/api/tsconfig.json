@@ -3,7 +3,14 @@
   "compilerOptions": {
     "lib": ["ES2015"],
     "outDir": "./dist",
-    "rootDir": "./src"
+    "rootDir": "./src",
+    "baseUrl": ".",
+    "paths": {
+      "@response/*": ["src/common/response/*"],
+      "@error/*": ["src/common/error/*"],
+      "@helpers/*": ["src/common/helpers/*"],
+      "@middlewares/*": ["src/common/middlewares/*"]
+    }
   },
   "exclude": ["node_modules"],
   "include": ["src"]
