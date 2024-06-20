@@ -5,17 +5,17 @@ import {
   StrategyOptions,
 } from "passport-jwt";
 import prisma from "src/common/database/prisma";
-
+import { jwt } from "src/config";
 const options: StrategyOptions = {
   jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-  secretOrKey: process.env.JWT_SECRET || "your_jwt_secret",
+  secretOrKey: jwt.secretKey || "abcdef",
 };
 
 passport.use(
   new JWTStrategy(options, async (payload, done) => {
     try {
       const user = await prisma.user.findUnique({ where: { id: payload.id } });
-      if (!user) {
+      if (user && user.status) {
         return done(null, user);
       } else {
         return done(null, false);
