@@ -1,5 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 import Logger from "@repo/logger";
+import * as emoji from "node-emoji";
 
 const prismaClientSingleton = () => {
   return new PrismaClient();
@@ -18,7 +19,7 @@ if (process.env.NODE_ENV !== "production") globalThis.prismaGlobal = prisma;
 prisma
   .$connect()
   .then(() => {
-    Logger.info("Connected to the database");
+    Logger.info(`${emoji.get("bookmark_tabs")} Connected to the database`);
   })
   .catch((error) => {
     Logger.error("Error connecting to the database:", error);

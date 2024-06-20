@@ -7,6 +7,7 @@ import { routesV1 } from "./routes";
 import expressListEndpoints from "express-list-endpoints";
 import errorHandler from "@middlewares/errorHandler";
 import { NotFoundError } from "@error/error";
+import * as emoji from "node-emoji";
 
 process.on("uncaughtException", (e) => {
   Logger.error(e);
@@ -25,11 +26,14 @@ export const createServer = () => {
     .use(errorHandler);
 
   const endPoints = expressListEndpoints(app);
-  Logger.info("--------------EndPoint Registers-------------------");
+
+  Logger.info(
+    `---------- ${emoji.get("globe_with_meridians")} EndPoint Registers ----------`,
+  );
   endPoints.forEach((e) => {
     Logger.info(`${e.methods} ${e.path}`);
   });
-  Logger.info("---------------------------------------------------");
+  Logger.info("-------------------------------------------");
 
   return app;
 };
