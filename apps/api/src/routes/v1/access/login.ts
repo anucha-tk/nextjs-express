@@ -33,6 +33,13 @@ routes.post(
     if (!comparePassword) throw new AuthFailureError("Password miss match");
     const { accessToken, refreshToken } = createToken(user);
 
+    await prisma.keystore.create({
+      data: {
+        userId: user.id,
+        token: refreshToken,
+      },
+    });
+
     new SuccessResponse("Login success", {
       user: _.omit(user, ["password", "status", "createdAt", "updatedAt"]),
       tokens: {

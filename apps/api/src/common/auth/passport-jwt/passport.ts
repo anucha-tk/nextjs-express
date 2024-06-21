@@ -1,4 +1,5 @@
 import { JwtPayload } from "jsonwebtoken";
+import _ from "lodash";
 import passport from "passport";
 import {
   Strategy as JWTStrategy,
@@ -20,7 +21,8 @@ passport.use(
         where: { id: +payload.sub },
       });
       if (user && user.status) {
-        return done(null, user);
+        const serializeUser = _.omit(user, ["password"]);
+        return done(null, serializeUser);
       } else {
         return done(null, false);
       }
