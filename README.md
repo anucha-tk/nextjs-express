@@ -3,11 +3,13 @@
 <!--toc:start-->
 
 - [Nextjs Express](#nextjs-express)
-  - [Tools](#tools)
-  - [How to run](#how-to-run) - [Run Postgresql on docker](#run-postgresql-on-docker)
+  - [Tools and Tech](#tools-and-tech)
+  - [How to run](#how-to-run)
+    - [Run Postgresql on docker](#run-postgresql-on-docker)
+  - [How to test](#how-to-test)
   <!--toc:end-->
 
-## Tools
+## Tools and Tech
 
 - Infrastructure
   - Turborepo
@@ -27,6 +29,7 @@
     - Postgresql
     - Prisma ORM
   - Validation(Joi)
+  - Testing(Vitest)
 
 ## How to run
 
@@ -34,4 +37,13 @@
 
 ```bash
 make dev-postgres-local
+```
+
+## How to test
+
+```bash
+yarn workspace api test:int
+yarn workspace api test:int -t [filter]
+yarn workspace api test:int:watch
+yarn workspace api test:cov
 ```

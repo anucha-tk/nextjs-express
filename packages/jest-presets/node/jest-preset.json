@@ -1,0 +1,21 @@
+{
+  "roots": ["<rootDir>"],
+  "transform": {
+    "^.+\\.tsx?$": "ts-jest"
+  },
+  "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"],
+  "modulePathIgnorePatterns": [
+    "<rootDir>/test/__fixtures__",
+    "<rootDir>/node_modules",
+    "<rootDir>/dist"
+  ],
+  "preset": "ts-jest",
+  "moduleNameMapper": {
+    "^src/(.*)$": "<rootDir>/src/$1",
+    "^@response/(.*)$": "<rootDir>/src/common/response/$1",
+    "^@error/(.*)$": "<rootDir>/src/common/error/$1",
+    "^@helpers/(.*)$": "<rootDir>/src/common/helpers/$1",
+    "^@middlewares/(.*)$": "<rootDir>/src/common/middlewares/$1"
+  },
+  "coverageReporters": ["lcov"]
+}

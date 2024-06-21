@@ -8,7 +8,9 @@
     "dev": "dotenv -e ../../.env.development -- nodemon --exec \"node -r esbuild-register ./src/index.ts\" -e .ts",
     "lint": "tsc --noEmit && eslint \"src/**/*.ts*\" --max-warnings 0",
     "start": "node -r esbuild-register ./src/index.ts",
-    "test": "jest --detectOpenHandles"
+    "test:int": "vitest --config vitest.config.mjs",
+    "test:int:watch": "vitest --config vitest.config.mjs --watch",
+    "test:cov": "vitest run --config vitest.config.mjs --coverage"
   },
   "jest": {
     "preset": "@repo/jest-presets/node"
@@ -44,6 +46,8 @@
     "@types/passport": "^0",
     "@types/passport-jwt": "^4",
     "@types/supertest": "^6.0.2",
+    "@vitest/coverage-v8": "^1.6.0",
+    "@vitest/ui": "^1.6.0",
     "dotenv-cli": "^7.4.2",
     "esbuild": "^0.20.1",
     "esbuild-register": "^3.5.0",
@@ -52,7 +56,8 @@
     "node-emoji": "^2.1.3",
     "nodemon": "^3.1.0",
     "prisma": "^5.15.0",
-    "supertest": "^6.3.3",
-    "typescript": "^5.3.3"
+    "supertest": "^7.0.0",
+    "typescript": "^5.3.3",
+    "vitest": "^1.6.0"
   }
 }
