@@ -49,6 +49,7 @@ class ApiResponse {
     // @ts-expect-error
     delete clone.status;
     for (const i in clone) if (typeof clone[i] === "undefined") delete clone[i];
+
     return clone;
   }
 }
@@ -90,6 +91,7 @@ export class NotFoundResponse extends ApiResponse {
   }
   send(res: Response): Response {
     this.url = res.req.originalUrl;
+
     return super.prepare<NotFoundResponse>(res, this);
   }
 }
@@ -129,6 +131,7 @@ export class AccessTokenErrorResponse extends ApiResponse {
 
   send(res: Response): Response {
     res.setHeader("instruction", this.instruction);
+
     return super.prepare<AccessTokenErrorResponse>(res, this);
   }
 }

@@ -31,7 +31,7 @@ routes.post(
       user.password,
     );
     if (!comparePassword) throw new AuthFailureError("Password miss match");
-    const { accessToken, refreshToken } = createToken(user);
+    const { accessToken, refreshToken } = createToken(user.id.toString());
 
     await prisma.keystore.create({
       data: {

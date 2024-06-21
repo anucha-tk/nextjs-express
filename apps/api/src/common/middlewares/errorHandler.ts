@@ -28,6 +28,7 @@ const errorHandler = (
   } else {
     if (environment === "development") {
       Logger.error(err);
+
       return res.status(500).send(err.message);
     }
     ApiError.handle(new InternalError(), res);

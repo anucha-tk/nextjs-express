@@ -22,6 +22,7 @@ passport.use(
       });
       if (user && user.status) {
         const serializeUser = _.omit(user, ["password"]);
+
         return done(null, serializeUser);
       } else {
         return done(null, false);

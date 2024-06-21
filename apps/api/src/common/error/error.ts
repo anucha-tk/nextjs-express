@@ -49,6 +49,7 @@ export class ApiError extends Error {
         let message = err.message;
         // Do not send failure message in production as it may send sensitive data
         if (environment === "production") message = "Something wrong happened.";
+
         return new InternalErrorResponse(message).send(res);
       }
     }
