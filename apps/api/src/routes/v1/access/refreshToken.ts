@@ -1,8 +1,8 @@
-import { AuthFailureError } from "@error/error";
+import { AccessTokenError, AuthFailureError } from "@error/error";
 import { validator } from "@helpers/validator/validator";
 import { ValidationSource } from "@helpers/validator/validator.enum";
 import asyncHandler from "@middlewares/asyncHandler";
-import { SuccessResponse } from "@response/response";
+import { TokenRefreshResponse } from "@response/response";
 import express from "express";
 import Joi from "joi";
 import jwt, { JwtPayload } from "jsonwebtoken";
@@ -35,13 +35,13 @@ export default router.post(
 
     const refreshTokenPayload = validateRefreshToken(req.body.refreshToken);
     if (accessTokenPayload.sub !== refreshTokenPayload.sub) {
-      throw new AuthFailureError("Access token and refresh token mismatch");
+      throw new AccessTokenError("Access token and refresh token mismatch");
     }
     const keystore = await prisma.keystore.findFirst({
       where: { token: req.body.refreshToken },
     });
     if (!keystore) {
-      throw new AuthFailureError("Invalid refresh token");
+      throw new AccessTokenError("Invalid refresh token");
     }
     await prisma.keystore.deleteMany({ where: { userId: user.id } });
     const { accessToken, refreshToken } = createToken(user.id.toString());
@@ -52,11 +52,8 @@ export default router.post(
       },
     });
 
-    new SuccessResponse("Refresh Token success", {
-      tokens: {
-        accessToken,
-        refreshToken,
-      },
+    new TokenRefreshResponse("Refresh Token success", {
+      tokens: { accessToken, refreshToken },
     }).send(res);
   }),
 );

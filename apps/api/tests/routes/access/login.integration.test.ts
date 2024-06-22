@@ -4,6 +4,7 @@ import { endPointV1 } from "../../test.config";
 import prisma from "../../../src/common/database/prisma";
 import bcrypt from "bcrypt";
 import { describe, it, expect } from "vitest";
+import { faker } from "@faker-js/faker";
 
 describe("login", () => {
   const endpoint = `${endPointV1}/login`;
@@ -20,14 +21,14 @@ describe("login", () => {
   describe("response", () => {
     it("should return 401 when user not found", async () => {
       const res = await request.post(endpoint).send({
-        email: "a@gmail.com",
-        password: "123456",
+        email: faker.internet.email(),
+        password: faker.string.alpha(10),
       });
       expect(res.status).toBe(401);
     });
     it("should return 200 when success", async () => {
-      const password = "123456";
-      const email = "a@gmaill.com";
+      const email = faker.internet.email();
+      const password = faker.string.alpha(10);
       const hashPassword = await bcrypt.hash(password, 10);
       await prisma.user.create({
         data: {

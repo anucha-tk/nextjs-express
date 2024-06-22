@@ -56,7 +56,7 @@ describe("Refresh token", () => {
     refreshTokenTwo = resUserTwo.body.data.tokens.refreshToken;
   });
 
-  it.sequential("should return 200 when refresh token success", async () => {
+  it("should return 200 when refresh token success", async () => {
     const res = await request
       .set("Authorization", `Bearer ${accessToken}`)
       .post(endpoint)
@@ -66,21 +66,16 @@ describe("Refresh token", () => {
     expect(res.body.data.tokens.refreshToken).toBeDefined();
   });
 
-  it.sequential(
-    "should return 401 when refreshToken sub missmatch",
-    async () => {
-      const res = await request
-        .set("Authorization", `Bearer ${accessToken}`)
-        .post(endpoint)
-        .send({ refreshToken: refreshTokenTwo });
-      expect(res.status).toBe(401);
-      expect(res.body.message).toMatch(
-        /Access token and refresh token mismatch/,
-      );
-    },
-  );
+  it("should return 401 when refreshToken sub missmatch", async () => {
+    const res = await request
+      .set("Authorization", `Bearer ${accessToken}`)
+      .post(endpoint)
+      .send({ refreshToken: refreshTokenTwo });
+    expect(res.status).toBe(401);
+    expect(res.body.message).toMatch(/Access token and refresh token mismatch/);
+  });
 
-  it.sequential("should return 401 when refreshToken notfound", async () => {
+  it("should return 401 when refreshToken notfound", async () => {
     await prisma.keystore.deleteMany();
     const res = await request
       .set("Authorization", `Bearer ${accessToken}`)
@@ -91,7 +86,7 @@ describe("Refresh token", () => {
   });
 
   // make test case bottom down we test when reset db (user have accessToken disapear)
-  it.sequential("should return 401 when user not found", async () => {
+  it("should return 401 when user not found", async () => {
     await resetDb();
     const res = await request
       .set("Authorization", `Bearer ${accessToken}`)

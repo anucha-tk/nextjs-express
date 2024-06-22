@@ -8,6 +8,10 @@ describe("Server test hello", () => {
   const server = createServer();
   const request = supertest.agent(server);
 
+  it("should return 404", async () => {
+    const response = await request.get("/invalid");
+    expect(response.status).toBe(404);
+  });
   it("should return 200", async () => {
     const response = await request.get(endpoint);
     expect(response.status).toBe(200);

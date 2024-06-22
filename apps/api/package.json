@@ -8,9 +8,10 @@
     "dev": "dotenv -e ../../.env.development -- nodemon --exec \"node -r esbuild-register ./src/index.ts\" -e .ts",
     "lint": "tsc --noEmit && eslint \"src/**/*.ts*\" --max-warnings 0",
     "start": "node -r esbuild-register ./src/index.ts",
-    "test:int": "vitest --config vitest.config.mjs",
-    "test:int:watch": "vitest --config vitest.config.mjs --watch",
-    "test:cov": "vitest run --config vitest.config.mjs --coverage"
+    "test": "vitest run --config vitest.config.mjs --no-file-parallelism",
+    "test:int": "vitest run --config vitest.config.mjs --no-file-parallelism",
+    "test:int:watch": "vitest run --config vitest.config.mjs --watch --no-file-parallelism",
+    "test:cov": "vitest run --config vitest.config.mjs --coverage --no-file-parallelism"
   },
   "jest": {
     "preset": "@repo/jest-presets/node"

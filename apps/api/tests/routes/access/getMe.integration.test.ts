@@ -13,7 +13,7 @@ describe("getMe", () => {
   let accessToken: string;
   const userObj = {
     email: faker.internet.email(),
-    password: "abc123",
+    password: faker.string.alpha(10),
     firstName: faker.person.firstName(),
     lastName: faker.person.lastName(),
   };
