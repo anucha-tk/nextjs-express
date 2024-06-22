@@ -3,6 +3,7 @@ import { createServer } from "../../../src/server";
 import { endPointV1 } from "../../test.config";
 import prisma from "../../../src/common/database/prisma";
 import bcrypt from "bcrypt";
+import { describe, it, expect } from "vitest";
 
 describe("login", () => {
   const endpoint = `${endPointV1}/login`;

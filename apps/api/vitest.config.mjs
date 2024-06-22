@@ -12,7 +12,9 @@ export default defineConfig({
     },
   },
   test: {
-    globals: true,
+    // when enable can use systex like jest eg. describe(), it()
+    // if disable just import direct systex from vitest
+    // globals: true,
     environment: "node",
     setupFiles: path.resolve(__dirname, "./tests/helpers/setup.ts"),
     coverage: {

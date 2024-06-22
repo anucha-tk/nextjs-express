@@ -10,7 +10,8 @@
       "@error/*": ["src/common/error/*"],
       "@helpers/*": ["src/common/helpers/*"],
       "@middlewares/*": ["src/common/middlewares/*"]
-    }
+    },
+    "types": ["vitest/globals"]
   },
   "exclude": ["node_modules"],
   "include": ["src"]

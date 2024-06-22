@@ -1,5 +1,6 @@
 import supertest from "supertest";
 import { createServer } from "../../../src/server";
+import { describe, it, expect } from "vitest";
 import { endPointV1 } from "../../test.config";
 
 describe("signup", () => {
