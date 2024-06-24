@@ -1,3 +1,5 @@
+## [0.1.1](https://github.com/anucha-tk/nextjs-express/compare/0.1.0...0.1.1) (2024-06-24)
+
 ## 0.1.0 (2024-06-24)
 
 ### Features
