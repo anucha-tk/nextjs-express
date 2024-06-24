@@ -19,7 +19,12 @@
   - Lint-staged
   - Release-it
 - Front-End
-  - Nextjs
+  - Nextjs 14
+  - UI
+    - Chakra UI
+  - form
+    - react-hook-form
+    - Validation form (yup)
 - Back-End
   - Express
   - Logger
@@ -47,3 +52,7 @@ yarn workspace api test:int -t [filter]
 yarn workspace api test:int:watch
 yarn workspace api test:cov
 ```
+
+## Credit
+
+[chakra-templates](https://chakra-templates.vercel.app/)
