@@ -25,6 +25,8 @@
   - form
     - react-hook-form
     - Validation form (yup)
+  - Authenticate
+    - HttpOnly Cookie
 - Back-End
   - Express
   - Logger
