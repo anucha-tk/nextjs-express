@@ -19,6 +19,7 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { login } from "../api/login";
 import { useRouter } from "next/navigation";
+import { isLoginResponse } from "../../utils/apiTypeGuard";
 
 type FormData = {
   email: string;
@@ -44,16 +45,18 @@ const Login = () => {
   });
   const onSubmit = async ({ email, password }: FormData) => {
     const res = await login({ email, password });
-    if (res.success) {
-      toast({
-        title: "Loggin success",
-        description: `Welcome ${res.user.firstName}`,
-        status: "success",
-        duration: 5000,
-        isClosable: true,
-        position: "top-right",
-      });
-
+    if (res.statusCode === "10000") {
+      if (isLoginResponse(res)) {
+        toast({
+          title: "Loggin success",
+          description: `Welcome ${res.data.user.firstName}`,
+          status: "success",
+          duration: 5000,
+          isClosable: true,
+          position: "top-right",
+        });
+        router.push("/app/dashboard");
+      }
       router.push("/app/dashboard");
     } else {
       toast({

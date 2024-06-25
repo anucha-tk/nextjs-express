@@ -2,7 +2,7 @@
 
 import { apiFetch } from "../../utils/apiFetch";
 import { isLoginResponse } from "../../utils/apiTypeGuard";
-import { setAccessToken, setRefeshToken } from "../../utils/cookies";
+import { setAccessToken, setRefreshToken } from "../../utils/cookies";
 
 export const login = async ({
   email,
@@ -18,7 +18,7 @@ export const login = async ({
   });
   if (isLoginResponse(res)) {
     setAccessToken(res.data.tokens.accessToken);
-    setRefeshToken(res.data.tokens.refreshToken);
+    setRefreshToken(res.data.tokens.refreshToken);
   }
   return res;
 };
