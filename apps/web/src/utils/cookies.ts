@@ -1,4 +1,14 @@
+"use server";
+
 import { cookies } from "next/headers";
+
+export const getAccessToken = () => {
+  return cookies().get("accessToken")?.value;
+};
+
+export const getRefeshToken = () => {
+  return cookies().get("refreshToken")?.value;
+};
 
 export const setAccessToken = (token: string) => {
   const accessTokenExpires = new Date(Date.now() + 15 * 60 * 1000); // 15 minutes
@@ -17,17 +27,4 @@ export const setRefreshToken = (token: string) => {
     secure: true, // Make sure to set secure:true if using HTTPS
     expires: refreshTokenExpires,
   });
-};
-
-export const removeAccessToken = () => {
-  cookies().delete("accessToken");
-};
-
-export const removeRefeshToken = () => {
-  cookies().delete("refreshToken");
-};
-
-export const removeAuthCookie = () => {
-  cookies().delete("accessToken");
-  cookies().delete("refreshToken");
 };

@@ -8,16 +8,19 @@ export const apiFetch = async <T>({
   body,
   accessToken,
 }: APIFetch<T>): Promise<ApiResponse> => {
+  const headers: HeadersInit = {
+    "Content-Type": "application/json",
+  };
+
+  if (accessToken) {
+    headers["Authorization"] = `Bearer ${accessToken}`;
+  }
+
   const res = await fetch(`${BASE_URL}${endpoint}`, {
     method,
-    headers: {
-      "Content-Type": "application/json",
-    },
+    headers,
     body: JSON.stringify(body),
   });
-  if (accessToken) {
-    res.headers.set("Authorization", `Bearer ${accessToken}`);
-  }
 
   const data = await res.json();
   if (isApiResponse(data)) {
