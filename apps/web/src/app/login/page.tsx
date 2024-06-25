@@ -54,7 +54,7 @@ const Login = () => {
         position: "top-right",
       });
 
-      router.push("/dashboard");
+      router.push("/app/dashboard");
     } else {
       toast({
         title: "Loggin fail",
