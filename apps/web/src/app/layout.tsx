@@ -1,4 +1,5 @@
 import Nav from "../components/navbar/Nav";
+import StoreProvider from "./StoreProvider";
 import { Providers } from "./providers";
 
 export default function RootLayout({
@@ -9,10 +10,12 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body suppressHydrationWarning>
-        <Providers>
-          <Nav />
-          {children}
-        </Providers>
+        <StoreProvider>
+          <Providers>
+            <Nav />
+            {children}
+          </Providers>
+        </StoreProvider>
       </body>
     </html>
   );

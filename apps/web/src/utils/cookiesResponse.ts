@@ -33,7 +33,25 @@ export const removeRefeshTokenResponse = (response: NextResponse) => {
   response.cookies.delete("refreshToken");
 };
 
+export const setAuthResponse = (response: NextResponse, firstName: string) => {
+  const accessTokenExpires = new Date(Date.now() + 15 * 60 * 1000); // 15 minutes
+
+  response.cookies.set("isAuthenticated", "true", {
+    expires: accessTokenExpires,
+  });
+  response.cookies.set("userName", firstName, {
+    expires: accessTokenExpires,
+  });
+};
+
 export const removeAuthCookieResponse = (response: NextResponse) => {
   response.cookies.delete("accessToken");
   response.cookies.delete("refreshToken");
+  response.cookies.delete("isAuthenticated");
+  response.cookies.delete("userName");
+};
+
+export const removeUserAuthCookieResponse = (response: NextResponse) => {
+  response.cookies.delete("isAuthenticated");
+  response.cookies.delete("userName");
 };

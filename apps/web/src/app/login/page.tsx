@@ -20,6 +20,8 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { login } from "../api/login";
 import { useRouter } from "next/navigation";
 import { isLoginResponse } from "../../utils/apiTypeGuard";
+import { loginReducer } from "../../lib/features/auth/authSlice";
+import { useAppDispatch } from "../../lib/hook";
 
 type FormData = {
   email: string;
@@ -43,10 +45,13 @@ const Login = () => {
   } = useForm<FormData>({
     resolver: yupResolver(schema),
   });
+  const dispatch = useAppDispatch();
+
   const onSubmit = async ({ email, password }: FormData) => {
     const res = await login({ email, password });
     if (res.statusCode === "10000") {
       if (isLoginResponse(res)) {
+        dispatch(loginReducer(res.data.user));
         toast({
           title: "Loggin success",
           description: `Welcome ${res.data.user.firstName}`,

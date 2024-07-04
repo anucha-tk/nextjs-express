@@ -1,10 +1,17 @@
 "use client";
 
-import { Box, useColorModeValue } from "@chakra-ui/react";
+import { useColorModeValue } from "@chakra-ui/react";
+import { Link } from "@chakra-ui/next-js";
 
-const NavLink = ({ children }: { children: React.ReactNode }) => {
+const NavLink = ({
+  href,
+  children,
+}: {
+  href: string;
+  children: React.ReactNode;
+}) => {
   return (
-    <Box
+    <Link
       as="a"
       px={2}
       py={1}
@@ -13,10 +20,10 @@ const NavLink = ({ children }: { children: React.ReactNode }) => {
         textDecoration: "none",
         bg: useColorModeValue("gray.200", "gray.700"),
       }}
-      href={"#"}
+      href={href}
     >
       {children}
-    </Box>
+    </Link>
   );
 };
 

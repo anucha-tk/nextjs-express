@@ -13,6 +13,12 @@ export interface LoginResponse extends ApiResponse {
   };
 }
 
+export interface GetMeResponse extends ApiResponse {
+  data: {
+    user: User;
+  };
+}
+
 export interface APIFetch<T> {
   endpoint: string;
   method: string;

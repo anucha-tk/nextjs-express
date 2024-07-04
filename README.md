@@ -7,6 +7,7 @@
   - [How to run](#how-to-run)
     - [Run Postgresql on docker](#run-postgresql-on-docker)
   - [How to test](#how-to-test)
+  - [Credit](#credit)
   <!--toc:end-->
 
 ## Tools and Tech
@@ -27,6 +28,8 @@
     - Validation form (yup)
   - Authenticate
     - HttpOnly Cookie
+  - middleware
+  - Redux toolkit
 - Back-End
   - Express
   - Logger

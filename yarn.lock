@@ -3186,6 +3186,26 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@reduxjs/toolkit@npm:^2.2.6":
+  version: 2.2.6
+  resolution: "@reduxjs/toolkit@npm:2.2.6"
+  dependencies:
+    immer: "npm:^10.0.3"
+    redux: "npm:^5.0.1"
+    redux-thunk: "npm:^3.1.0"
+    reselect: "npm:^5.1.0"
+  peerDependencies:
+    react: ^16.9.0 || ^17.0.0 || ^18
+    react-redux: ^7.2.1 || ^8.1.3 || ^9.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-redux:
+      optional: true
+  checksum: 10c0/60af753e6d02c8acd3c5bc843c846d60b19821d93ff9f4415fa7011ebf17a85301ed42132fabc1aaee8523d8f61418b5ba164a11c31ab29937e485842d3744a0
+  languageName: node
+  linkType: hard
+
 "@release-it/conventional-changelog@npm:^8.0.1":
   version: 8.0.1
   resolution: "@release-it/conventional-changelog@npm:8.0.1"
@@ -3679,6 +3699,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/js-cookie@npm:^3":
+  version: 3.0.6
+  resolution: "@types/js-cookie@npm:3.0.6"
+  checksum: 10c0/173afaf5ea9d86c22395b9d2a00b6adb0006dcfef165d6dcb0395cdc32f5a5dcf9c3c60f97194119963a15849b8f85121e1ae730b03e40bc0c29b84396ba22f9
+  languageName: node
+  linkType: hard
+
 "@types/json-schema@npm:^7.0.12, @types/json-schema@npm:^7.0.9":
   version: 7.0.15
   resolution: "@types/json-schema@npm:7.0.15"
@@ -3902,6 +3929,13 @@ __metadata:
   version: 1.3.5
   resolution: "@types/triple-beam@npm:1.3.5"
   checksum: 10c0/d5d7f25da612f6d79266f4f1bb9c1ef8f1684e9f60abab251e1261170631062b656ba26ff22631f2760caeafd372abc41e64867cde27fba54fafb73a35b9056a
+  languageName: node
+  linkType: hard
+
+"@types/use-sync-external-store@npm:^0.0.3":
+  version: 0.0.3
+  resolution: "@types/use-sync-external-store@npm:0.0.3"
+  checksum: 10c0/82824c1051ba40a00e3d47964cdf4546a224e95f172e15a9c62aa3f118acee1c7518b627a34f3aa87298a2039f982e8509f92bfcc18bea7c255c189c293ba547
   languageName: node
   linkType: hard
 
@@ -8549,6 +8583,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"immer@npm:^10.0.3":
+  version: 10.1.1
+  resolution: "immer@npm:10.1.1"
+  checksum: 10c0/b749e10d137ccae91788f41bd57e9387f32ea6d6ea8fd7eb47b23fd7766681575efc7f86ceef7fe24c3bc9d61e38ff5d2f49c2663b2b0c056e280a4510923653
+  languageName: node
+  linkType: hard
+
 "import-fresh@npm:^3.2.1, import-fresh@npm:^3.3.0":
   version: 3.3.0
   resolution: "import-fresh@npm:3.3.0"
@@ -9790,6 +9831,13 @@ __metadata:
     "@sideway/formula": "npm:^3.0.1"
     "@sideway/pinpoint": "npm:^2.0.0"
   checksum: 10c0/485627809c5e424fc4af4310e06bc31a34fe10635b0bdbfcc425336db5e06b1da3ff8b35101878ffcbcd94c0187e7134c935fb2d1aeba641c92d7f505e6ffd8d
+  languageName: node
+  linkType: hard
+
+"js-cookie@npm:^3.0.5":
+  version: 3.0.5
+  resolution: "js-cookie@npm:3.0.5"
+  checksum: 10c0/04a0e560407b4489daac3a63e231d35f4e86f78bff9d792011391b49c59f721b513411cd75714c418049c8dc9750b20fcddad1ca5a2ca616c3aca4874cce5b3a
   languageName: node
   linkType: hard
 
@@ -12054,6 +12102,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-redux@npm:^9.1.2":
+  version: 9.1.2
+  resolution: "react-redux@npm:9.1.2"
+  dependencies:
+    "@types/use-sync-external-store": "npm:^0.0.3"
+    use-sync-external-store: "npm:^1.0.0"
+  peerDependencies:
+    "@types/react": ^18.2.25
+    react: ^18.0
+    redux: ^5.0.0
+  peerDependenciesMeta:
+    "@types/react":
+      optional: true
+    redux:
+      optional: true
+  checksum: 10c0/56ac98228e011b26e0202346af9c8dd408ad5ea8235d8761c8e05ea0953b8ca801cdf9d1f481fdec7b285d7f30ceef7238b46b3df7636ef77dd5c2ea8c5be5b2
+  languageName: node
+  linkType: hard
+
 "react-remove-scroll-bar@npm:^2.3.6":
   version: 2.3.6
   resolution: "react-remove-scroll-bar@npm:2.3.6"
@@ -12190,6 +12257,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"redux-thunk@npm:^3.1.0":
+  version: 3.1.0
+  resolution: "redux-thunk@npm:3.1.0"
+  peerDependencies:
+    redux: ^5.0.0
+  checksum: 10c0/21557f6a30e1b2e3e470933247e51749be7f1d5a9620069a3125778675ce4d178d84bdee3e2a0903427a5c429e3aeec6d4df57897faf93eb83455bc1ef7b66fd
+  languageName: node
+  linkType: hard
+
+"redux@npm:^5.0.1":
+  version: 5.0.1
+  resolution: "redux@npm:5.0.1"
+  checksum: 10c0/b10c28357194f38e7d53b760ed5e64faa317cc63de1fb95bc5d9e127fab956392344368c357b8e7a9bedb0c35b111e7efa522210cfdc3b3c75e5074718e9069c
+  languageName: node
+  linkType: hard
+
 "reflect.getprototypeof@npm:^1.0.4":
   version: 1.0.6
   resolution: "reflect.getprototypeof@npm:1.0.6"
@@ -12310,6 +12393,13 @@ __metadata:
   version: 2.0.2
   resolution: "require-from-string@npm:2.0.2"
   checksum: 10c0/aaa267e0c5b022fc5fd4eef49d8285086b15f2a1c54b28240fdf03599cbd9c26049fee3eab894f2e1f6ca65e513b030a7c264201e3f005601e80c49fb2937ce2
+  languageName: node
+  linkType: hard
+
+"reselect@npm:^5.1.0":
+  version: 5.1.1
+  resolution: "reselect@npm:5.1.1"
+  checksum: 10c0/219c30da122980f61853db3aebd173524a2accd4b3baec770e3d51941426c87648a125ca08d8c57daa6b8b086f2fdd2703cb035dd6231db98cdbe1176a71f489
   languageName: node
   linkType: hard
 
@@ -14159,6 +14249,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"use-sync-external-store@npm:^1.0.0":
+  version: 1.2.2
+  resolution: "use-sync-external-store@npm:1.2.2"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+  checksum: 10c0/23b1597c10adf15b26ade9e8c318d8cc0abc9ec0ab5fc7ca7338da92e89c2536abd150a5891bf076836c352fdfa104fc7231fb48f806fd9960e0cbe03601abaf
+  languageName: node
+  linkType: hard
+
 "util-deprecate@npm:^1.0.1":
   version: 1.0.2
   resolution: "util-deprecate@npm:1.0.2"
@@ -14342,18 +14441,22 @@ __metadata:
     "@emotion/styled": "npm:^11.11.5"
     "@hookform/resolvers": "npm:^3.6.0"
     "@next/eslint-plugin-next": "npm:^14.1.1"
+    "@reduxjs/toolkit": "npm:^2.2.6"
     "@repo/eslint-config": "npm:*"
     "@repo/typescript-config": "npm:*"
     "@repo/ui": "npm:*"
+    "@types/js-cookie": "npm:^3"
     "@types/node": "npm:^20.11.24"
     "@types/react": "npm:^18.2.61"
     "@types/react-dom": "npm:^18.2.19"
     eslint: "npm:^8.57.0"
     framer-motion: "npm:^11.2.11"
+    js-cookie: "npm:^3.0.5"
     next: "npm:^14.1.1"
     react: "npm:^18.2.0"
     react-dom: "npm:^18.2.0"
     react-hook-form: "npm:^7.52.0"
+    react-redux: "npm:^9.1.2"
     typescript: "npm:^5.3.3"
     yup: "npm:^1.4.0"
   languageName: unknown
