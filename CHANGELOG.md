@@ -1,3 +1,17 @@
+## [0.2.0](https://github.com/anucha-tk/nextjs-express/compare/0.1.1...0.2.0) (2024-07-06)
+
+### Features
+
+- **auth:** handle redux auth state with cookie on front-end ([4ed0671](https://github.com/anucha-tk/nextjs-express/commit/4ed067196f809a1f7bd17873d18c6644a518315b))
+- **auth:** logout ([f5baac2](https://github.com/anucha-tk/nextjs-express/commit/f5baac27d3d68c019865f957be05a147823e1ac0))
+- **loggin:** add login page and set cookies ([feaaf8d](https://github.com/anucha-tk/nextjs-express/commit/feaaf8d2857041eb911ea3ac0be5d00c7fe0f2c0))
+- **midddleware:** fix middleware /app ([fc22988](https://github.com/anucha-tk/nextjs-express/commit/fc2298832c730589f664cad2a161aa84eee3f6bc))
+- **navbar:** add navbar ([b9f7533](https://github.com/anucha-tk/nextjs-express/commit/b9f7533cd7ccfe178ea7bea3a79e3dea8d537b88))
+
+### Bug Fixes
+
+- **login:** fix login page and api ([0847ce8](https://github.com/anucha-tk/nextjs-express/commit/0847ce8674c3b0df8f9beb97e16eed82b2f7f5f1))
+
 ## [0.1.1](https://github.com/anucha-tk/nextjs-express/compare/0.1.0...0.1.1) (2024-06-24)
 
 ## 0.1.0 (2024-06-24)
