@@ -27,6 +27,10 @@
     - react-hook-form
     - Validation form (yup)
   - Authenticate
+    - login
+    - logout
+    - getme
+    - refresh token
     - HttpOnly Cookie
   - middleware
   - Redux toolkit

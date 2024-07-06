@@ -13,18 +13,20 @@ import {
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 import NavLink from "./NavLink";
 import dynamic from "next/dynamic";
-import { useAppSelector } from "../../lib/hook";
+import { useAppDispatch, useAppSelector } from "../../lib/hook";
 const NavNoSSR = dynamic(() => import("./NavNoSSR"), { ssr: false });
+import { logoutReducer } from "../../lib/features/auth/authSlice";
 
 export default function Nav() {
+  const dispatch = useAppDispatch();
   let links = [
     { name: "Home", href: "/" },
-    { name: "Dashboard", href: "/app/dashboard" },
     { name: "Login", href: "/login" },
   ];
   const isAuthenticated = useAppSelector((state) => state.auth.isAuthenticated);
   if (isAuthenticated) {
     links = links.filter((link) => link.name !== "Login");
+    links.push({ name: "Dashboard", href: "/app/dashboard" });
   }
 
   const { colorMode, toggleColorMode } = useColorMode();
@@ -44,6 +46,11 @@ export default function Nav() {
                 {link.name}
               </NavLink>
             ))}
+            {isAuthenticated && (
+              <Button onClick={() => dispatch(logoutReducer())}>
+                <NavLink href={"/app/logout"}>Logout</NavLink>
+              </Button>
+            )}
           </HStack>
 
           <Flex alignItems={"center"} gap={4}>
