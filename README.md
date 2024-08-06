@@ -3,12 +3,17 @@
 <!--toc:start-->
 
 - [Nextjs Express](#nextjs-express)
+  - [Screenshot](#screenshot)
   - [Tools and Tech](#tools-and-tech)
   - [How to run](#how-to-run)
     - [Run Postgresql on docker](#run-postgresql-on-docker)
   - [How to test](#how-to-test)
   - [Credit](#credit)
   <!--toc:end-->
+
+## Screenshot
+
+![Alt text](doc/images/screenshot_1.png)
 
 ## Tools and Tech
 
